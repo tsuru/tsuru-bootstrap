@@ -1,7 +1,7 @@
 #!/bin/bash
 set -x
 
-tsuru target-add default tsuru.lan
+tsuru target-add default tsuru.lan:8080
 tsuru target-set default
 
 tsuru user-create dgryski@example.com
