@@ -1,6 +1,8 @@
 #!/bin/bash
 set -x
 
+tsuru app-remove --app hw
+
 cd hw
 git init
 git add Procfile hw.py
