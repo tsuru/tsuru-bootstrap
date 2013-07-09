@@ -1,11 +1,6 @@
 #!/bin/bash
 set -x
 
-tsuru user-create dgryski@example.com
-tsuru login dgryski@example.com
-tsuru team-create dgryski
-tsuru key-add ~/.ssh/github_rsa.pub 
-
 cd hw
 git init
 git add Procfile hw.py
