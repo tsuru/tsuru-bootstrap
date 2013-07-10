@@ -2,7 +2,7 @@
 import os
 from BaseHTTPServer import BaseHTTPRequestHandler,HTTPServer
 
-PORT = int(8080)
+PORT = int(8888)
 
 class Handler(BaseHTTPRequestHandler):
         def do_GET(self):
