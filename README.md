@@ -34,4 +34,11 @@ Now we can try deploying our sample "hello world" python web application.
 
 If everything is working properly (which is isn't yet), you should be able to
 visit your app at "http://hw.tsuru.lan", which I also have an alias for in my
-/etc/hosts file.
+/etc/hosts file.  However, for the moment the config assumes 'cloud.company.com' as the top-level domain,
+so you need to pass the appropriate Host header.
+
+The comnand I'm using to test this is:
+
+   desktop$  http -vv tsuru.lan Host:hw2.cloud.company.com
+
+But you could also use curl with '-H Host:hw2.cloud.company.com'
