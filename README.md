@@ -39,6 +39,6 @@ so you need to pass the appropriate Host header.
 
 The comnand I'm using to test this is:
 
-   desktop$  http -vv tsuru.lan Host:hw2.cloud.company.com
+    desktop$  http -vv tsuru.lan Host:hw2.cloud.company.com
 
 But you could also use curl with '-H Host:hw2.cloud.company.com'
