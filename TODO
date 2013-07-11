@@ -3,5 +3,4 @@ What other config items need to be fixed:
     cloud.mycompany.com
     my.gandalf.domain
 
-start-stop-daemon tsr
 hipache init script
