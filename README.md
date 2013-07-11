@@ -43,5 +43,5 @@ The comnand I'm using to test this is:
 
 or
 
-    desktop$ curl -vv -H Host:hw.cloud.company.com tsuru.lan
+    desktop$ curl -vv -H 'Host: hw.cloud.company.com' tsuru.lan
 
