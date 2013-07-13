@@ -6,6 +6,8 @@ My testing process looks something like:
 
     desktop$ vagrant up
     desktop$ vagrant ssh
+    vagrant$ sudo apt-get install linux-image-3.8.0-26-generic linux-headers-3.8.0-26-generic
+    desktop$ vagrant halt && vagrant up
     vagrant$ mkdir v && cd v
     vagrant$ bash /vagrant/install-tsuru.sh
 
@@ -20,6 +22,10 @@ This will install the latest Go release and pull down all the source code
 required to build Tsuru.
 
     vagrant$ bash /vagrant/upgrade-go.sh
+
+If you need to upgrade docker too:
+
+    vagrant$ bash /vagrant/upgrade-docker.sh
 
 Now you can setup your user account.  Note that I have an entry in /etc/hosts
 to point the IP address in Vagrantfile to 'tsuru.lan' to make my life easier.
