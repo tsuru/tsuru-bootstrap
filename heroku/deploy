@@ -1,0 +1,9 @@
+
+SOURCE_DIR=/var/lib/tsuru
+${SOURCE_DIR}/base/deploy $@
+
+source ${SOURCE_DIR}/config
+
+cd $CURRENT_DIR
+git archive --format=tar |sudo /bin/sh -c "rm -rf /app && mkdir /app && tar xvf - -C /app"
+/build/builder
