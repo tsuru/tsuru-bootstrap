@@ -15,6 +15,18 @@ curl -O https://raw.github.com/globocom/tsuru/master/misc/docker-setup.bash
 sudo pkill node
 sudo start-stop-daemon --background --start --make-pidfile --pidfile /var/run/hipache.pid --exec /usr/local/bin/hipache -- --config /etc/hipache.conf.json
 
+# adjust mongodb config
+sudo pkill -u git gandalf-webserv  # not full process name, pkill only matches first 15
+sudo /etc/init.d/mongodb stop
+sudo rm -rf  /var/lib/mongodb/*
+echo -e "noprealloc=true\nsmallfiles=true" |sudo tee -a /etc/mongodb.conf
+sudo /etc/init.d/mongodb start
+sudo -u git start-stop-daemon --background --start --exec /usr/bin/gandalf-webserver
+# recreate tsuru platforms list
+mongo tsuru platforms-setup.js
+# recreate gandalf's token
+sudo -u git perl -pi -le "s/TSURU_TOKEN=.*/TSURU_TOKEN=$(tsr token)/" ~git/.bash_profile
+
 # create docker images
 git clone https://github.com/flaviamissi/basebuilder
 (cd basebuilder/python/ && docker build -t "tsuru/python" .)
