@@ -41,7 +41,7 @@ If everything is working properly, you should be able to visit your app at
 However, for the moment the config assumes 'cloud.company.com' as the top-level
 domain, so you need to pass the appropriate Host header.
 
-The comnand I'm using to test this is:
+The command I'm using to test this is:
 
     desktop$ http -vv tsuru.lan Host:hw.cloud.company.com
 
