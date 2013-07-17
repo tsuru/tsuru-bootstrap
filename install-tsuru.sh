@@ -19,8 +19,8 @@ sudo start-stop-daemon --background --start --make-pidfile --pidfile /var/run/hi
 sudo pkill -u git gandalf-webserv  # not full process name, pkill only matches first 15
 sudo /etc/init.d/mongodb stop
 sudo rm -rf  /var/lib/mongodb/*
-echo -e "noprealloc=true\nsmallfiles=true" |sudo tee -a /etc/mongodb.conf
-sudo /etc/init.d/mongodb start
+printf "noprealloc=true\nsmallfiles=true\n" |sudo tee -a /etc/mongodb.conf
+sudo /etc/init.d/mongodb start ; sleep 1 # wait for mongo to start up before continuing
 sudo -u git start-stop-daemon --background --start --exec /usr/bin/gandalf-webserver
 # recreate tsuru platforms list
 mongo tsuru platforms-setup.js
