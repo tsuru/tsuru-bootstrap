@@ -27,6 +27,9 @@ mongo tsuru platforms-setup.js
 # recreate gandalf's token
 sudo -u git perl -pi -le "s/TSURU_TOKEN=.*/TSURU_TOKEN=$(tsr token)/" ~git/.bash_profile
 
+# we don't need our downloaded .debs anymore
+sudo apt-get clean
+
 # create docker images
 git clone https://github.com/flaviamissi/basebuilder
 (cd basebuilder/python/ && docker build -t "tsuru/python" .)
