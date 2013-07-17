@@ -36,10 +36,10 @@ Now we can try deploying our sample "hello world" python web application.
 
     desktop$ ./deploy-app.sh
 
-If everything is working properly (which is isn't yet), you should be able to
-visit your app at "http://hw.tsuru.lan", which I also have an alias for in my
-/etc/hosts file.  However, for the moment the config assumes 'cloud.company.com' as the top-level domain,
-so you need to pass the appropriate Host header.
+If everything is working properly, you should be able to visit your app at
+"http://hw.tsuru.lan", which I also have an alias for in my /etc/hosts file.
+However, for the moment the config assumes 'cloud.company.com' as the top-level
+domain, so you need to pass the appropriate Host header.
 
 The comnand I'm using to test this is:
 
