@@ -1,7 +1,7 @@
 #!/bin/bash
 set -x
 
-tsuru app-remove --app hw
+#tsuru app-remove --app hw
 
 cd hw
 git init
