@@ -3,4 +3,16 @@ What other config items need to be fixed:
     cloud.mycompany.com
     my.gandalf.domain
 
-hipache init script
+hipache init script?
+
+Jul 18 20:56:28 tsuru 2013-07-18T20:56:28Z tsuru.lan /home/vagrant/.go/bin//tsr[25226]: 2013/07/18 20:56:28 [pipeline] running the Forward for the provision-app action
+Jul 18 20:56:28 tsuru 2013-07-18T20:56:28Z tsuru.lan /home/vagrant/.go/bin//tsr[25226]: 2013/07/18 20:56:28 [pipeline] error running the Forward for the provision-app action - Could not add route: EOF
+Jul 18 20:56:28 tsuru 2013-07-18T20:56:28Z tsuru.lan /home/vagrant/.go/bin//tsr[25226]: 2013/07/18 20:56:28 [pipeline] running Backward for create-repository action
+Jul 18 20:56:28 tsuru 2013-07-18T20:56:28Z tsuru.lan /home/vagrant/.go/bin//tsr[25226]: 2013/07/18 20:56:28 [pipeline] running Backward for export-environments action
+Jul 18 20:56:28 tsuru 2013-07-18T20:56:28Z tsuru.lan /home/vagrant/.go/bin//tsr[25226]: 2013/07/18 20:56:28 [pipeline] running Backward for insert-app action
+Jul 18 20:56:28 tsuru 2013-07-18T20:56:28Z tsuru.lan /home/vagrant/.go/bin//tsr[25226]: 2013/07/18 20:56:28 [pipeline] running Backward for create-app-quota action
+Jul 18 20:56:28 tsuru 2013-07-18T20:56:28Z tsuru.lan /home/vagrant/.go/bin//tsr[25226]: 2013/07/18 20:56:28 [pipeline] running Backward for reserve-user-app action
+Jul 18 20:56:28 tsuru 2013-07-18T20:56:28Z tsuru.lan /home/vagrant/.go/bin//tsr[25226]: 2013/07/18 20:56:28 Got error while creating app: Tsuru failed to create the app "ifinfo": Could not add route: EOF
+Jul 18 20:56:28 tsuru 2013-07-18T20:56:28Z tsuru.lan /home/vagrant/.go/bin//tsr[25226]: 2013/07/18 20:56:28 Tsuru failed to create the app "ifinfo": Could not add route: EOF
+
+We do not get progressive output from the build :(
