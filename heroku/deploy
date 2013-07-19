@@ -9,3 +9,7 @@ cd $CURRENT_DIR
 # $2 == git-ref-id
 git archive --format=tar $2 |sudo /bin/sh -c "rm -rf /app && mkdir /app && tar xvf - -C /app"
 sudo /build/builder
+# tell heroku app what port to listen on
+echo "export PORT=8888" |sudo tee /app/.profile.d/tsuru.sh
+# create a new procfile that uses /start
+LC_ALL=C  perl -lne '/^(.*?):/ && print "$1: /start $1"' /app/Procfile  |sudo tee /Procfile

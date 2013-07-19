@@ -9,6 +9,3 @@ docker build -t tsuru/heroku - < Dockerfile
 mongo tsuru <<EOJS
 db.platforms.save({"_id":"heroku"})
 EOJS
-
-# TODO: export PORT=8888
-
