@@ -49,3 +49,9 @@ or
 
     desktop$ curl -vv -H 'Host: hw.cloud.company.com' tsuru.lan
 
+The preliminary heroku buildpack support is in the 'heroku' directory.  You can create the image with
+
+    vagrant$ cd /vagrant/heroku && sh ./install.sh
+
+After that, you should be able to create tsuru apps under the 'heroku'
+platform.
