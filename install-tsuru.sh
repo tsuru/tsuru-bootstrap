@@ -32,4 +32,4 @@ sudo apt-get clean
 
 # create docker images
 git clone https://github.com/flaviamissi/basebuilder
-(cd basebuilder/python/ && docker build -t "tsuru/python" .)
+(cd basebuilder/python/ && docker -H 127.0.0.1:4243 build -t "tsuru/python" .)
