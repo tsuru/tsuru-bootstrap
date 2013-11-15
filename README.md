@@ -5,8 +5,7 @@ This is a collection of scripts I'm using to help me test getting
 My testing process looks something like:
 
     desktop$ vagrant up && vagrant ssh
-    vagrant$ sudo apt-get update && sudo apt-get install -y linux-image-3.8.0-26-generic linux-headers-3.8.0-26-generic
-    desktop$ vagrant halt && vagrant up && vagrant ssh
+
     vagrant$ mkdir v && cd v && sh /vagrant/install-tsuru.sh
 
 This step takes about 10-15 minutes.  After the script finishes, all the parts
