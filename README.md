@@ -6,13 +6,7 @@ My testing process looks something like:
 
     desktop$ vagrant up && vagrant ssh
 
-    vagrant$ mkdir v && cd v && sh /vagrant/install-tsuru.sh
-
-This step takes about 10-15 minutes.  After the script finishes, all the parts
-have been configured and installed and a python docker image has been built.
-The main tsuru binary (tsr) has not yet been started.
-
-    vagrant$ bash /vagrant/start-tsr.sh
+    vagrant$ sh /vagrant/new-installer.sh
 
 If you want to hack on tsuru itself in the VM, then you'll need to upgrade Go.
 This will install the latest Go release and pull down all the source code
