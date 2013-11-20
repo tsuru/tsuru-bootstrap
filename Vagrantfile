@@ -6,4 +6,5 @@ Vagrant.configure("2") do |config|
    config.vm.network :private_network, ip: "192.168.50.4"
 #   config.vm.network :forwarded_port, guest: 80, host: 8080
    config.vm.hostname = "tsuru.lan"
+   config.vm.provision :shell, :path => "new-installer.sh"
 end
