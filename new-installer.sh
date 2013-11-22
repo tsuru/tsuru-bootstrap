@@ -75,7 +75,8 @@ EOF
 service beanstalkd start
 
 echo Configuring and starting Tsuru
-curl -o /etc/tsuru/tsuru.conf http://script.cloud.tsuru.io/conf/tsuru-docker-single.conf
+#curl -o /etc/tsuru/tsuru.conf http://script.cloud.tsuru.io/conf/tsuru-docker-single.conf
+cp /vagrant/tsuru.conf /etc/tsuru/tsuru.conf
 host_ip=192.168.50.4
 sed -i.old -e "s/{{{HOST_IP}}}/${host_ip}/" /etc/tsuru/tsuru.conf
 sed -i.old -e 's/=no/=yes/' /etc/default/tsuru-server
