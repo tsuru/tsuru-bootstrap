@@ -30,6 +30,9 @@ echo Installing remaining packages
 apt-get update
 apt-get install lxc-docker-0.6.3 tsuru-server beanstalkd redis-server node-hipache gandalf-server -qqy
 
+echo Starting hipache
+start hipache
+
 echo Configuring and starting Docker
 sed -i.old -e 's;/usr/bin/docker -d;/usr/bin/docker -H tcp://127.0.0.1:4243 -d;' /etc/init/docker.conf
 rm /etc/init/docker.conf.old
