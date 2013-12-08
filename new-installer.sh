@@ -79,7 +79,7 @@ service beanstalkd start
 
 echo Configuring and starting Tsuru
 #curl -o /etc/tsuru/tsuru.conf http://script.cloud.tsuru.io/conf/tsuru-docker-single.conf
-curl -o /etc/tsuru/tsuru.conf https://raw.github.com/flaviamissi/tsuru-bootstrap/master/tsuru.conf
+curl -o /etc/tsuru/tsuru.conf https://raw.github.com/dgryski/tsuru-bootstrap/master/tsuru.conf
 host_ip=`/sbin/ifconfig | sed -n '2 p' | awk '{print $2}' | cut -d ':' -f 2`
 sed -i.old -e "s/{{{HOST_IP}}}/${host_ip}/" /etc/tsuru/tsuru.conf
 sed -i.old -e 's/=no/=yes/' /etc/default/tsuru-server
