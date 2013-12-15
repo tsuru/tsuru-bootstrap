@@ -1,5 +1,5 @@
 export DEBIAN_FRONTEND=noninteractive
-sudo apt-get install -y golang-go git mercurial bzr gcc
+sudo apt-get install -y golang-go git mercurial bzr gcc libsqlite3-dev
 echo 'export GOPATH=/home/vagrant/.go' >> /home/vagrant/.go_bashrc
 echo 'export PATH=${GOPATH}/bin:${PATH}' >> /home/vagrant/.go_bashrc
 echo 'source ~/.go_bashrc' >> /home/vagrant/.bashrc
