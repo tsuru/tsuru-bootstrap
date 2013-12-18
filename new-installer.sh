@@ -99,4 +99,8 @@ curl -O https://raw.github.com/nightshade427/tsuru-bootstrap/master/platforms-se
 mongo tsuru platforms-setup.js
 rm platforms-setup.js
 git clone https://github.com/nightshade427/basebuilder
-(cd basebuilder/python/ && docker -H 127.0.0.1:4243 build -t "${host}:8080/tsuru/python" .)
+(cd basebuilder/python/ && docker -H 127.0.0.1:4243 build -t tsuru/python .)
+docker -H 127.0.0.1:4243 tag tsuru/python ${host}:8080/tsuru/python
+docker -H 1237.0.0.1:4243 push ${host}:8080/tsuru/python
+docker rm `docker ps -a | awk '{print $1}'`
+docker rmi `docker images -a | awk '{print $3}'`
