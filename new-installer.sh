@@ -94,6 +94,8 @@ start tsuru-server-api
 start tsuru-server-collector
 
 echo Installing python platform
-curl https://raw.github.com/nightshade427/tsuru-bootstrap/master/platforms-setup.js | mongo tsuru platforms-setup.js
+curl -0 https://raw.github.com/nightshade427/tsuru-bootstrap/master/platforms-setup.js
+mongo tsuru platforms-setup.js
+rm platforms-setup.js
 git clone https://github.com/nightshade427/basebuilder
 (cd basebuilder/python/ && docker -H 127.0.0.1:4243 build -t "${host}:8080/tsuru/python" .)
