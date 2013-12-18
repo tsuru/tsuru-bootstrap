@@ -84,7 +84,9 @@ echo Configuring and starting Tsuru
 #curl -o /etc/tsuru/tsuru.conf http://script.cloud.tsuru.io/conf/tsuru-docker-single.conf
 curl -o /etc/tsuru/tsuru.conf https://raw.github.com/nightshade427/tsuru-bootstrap/master/tsuru.conf
 host_ip=`/sbin/ifconfig | sed -n '2 p' | awk '{print $2}' | cut -d ':' -f 2`
+host=`hostname`
 sed -i.old -e "s/{{{HOST_IP}}}/${host_ip}/" /etc/tsuru/tsuru.conf
+sed -i.old -e "s/{{{HOST}}}/${host}/" /etc/tsuru/tsuru.conf
 sed -i.old -e 's/=no/=yes/' /etc/default/tsuru-server
 rm /etc/default/tsuru-server.old /etc/tsuru/tsuru.conf.old
 start tsuru-ssh-agent
