@@ -94,7 +94,7 @@ start tsuru-server-api
 start tsuru-server-collector
 
 echo Installing python platform
-curl -0 https://raw.github.com/nightshade427/tsuru-bootstrap/master/platforms-setup.js
+curl -O https://raw.github.com/nightshade427/tsuru-bootstrap/master/platforms-setup.js
 mongo tsuru platforms-setup.js
 rm platforms-setup.js
 git clone https://github.com/nightshade427/basebuilder
