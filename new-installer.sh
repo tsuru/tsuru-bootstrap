@@ -4,8 +4,11 @@
 # Use of this source code is governed by a BSD-style
 # license that can be found in the LICENSE file.
 
-echo Installing curl
+echo updating system
 apt-get update
+apt-get dist-upgrade -y
+
+echo Installing curl
 apt-get install curl -qqy
 
 echo Installing apt-add-repository
@@ -28,7 +31,7 @@ apt-get install mongodb-10gen -qqy
 
 echo Installing remaining packages
 apt-get update
-apt-get install lxc-docker-0.6.3 tsuru-server beanstalkd redis-server node-hipache gandalf-server -qqy
+apt-get install lxc-docker docker-registry tsuru-server beanstalkd redis-server node-hipache gandalf-server -qqy
 
 echo Starting hipache
 start hipache
@@ -79,7 +82,7 @@ service beanstalkd start
 
 echo Configuring and starting Tsuru
 #curl -o /etc/tsuru/tsuru.conf http://script.cloud.tsuru.io/conf/tsuru-docker-single.conf
-curl -o /etc/tsuru/tsuru.conf https://raw.github.com/dgryski/tsuru-bootstrap/master/tsuru.conf
+curl -o /etc/tsuru/tsuru.conf https://raw.github.com/nightshade427/tsuru-bootstrap/master/tsuru.conf
 host_ip=`/sbin/ifconfig | sed -n '2 p' | awk '{print $2}' | cut -d ':' -f 2`
 sed -i.old -e "s/{{{HOST_IP}}}/${host_ip}/" /etc/tsuru/tsuru.conf
 sed -i.old -e 's/=no/=yes/' /etc/default/tsuru-server
@@ -89,7 +92,7 @@ start tsuru-server-api
 start tsuru-server-collector
 
 echo Installing python platform
-curl -O https://raw.github.com/globocom/tsuru/master/misc/platforms-setup.js
+curl -o /etc/tsuru/tsuru.conf https://raw.github.com/nightshade427/tsuru-bootstrap/master/platforms-setup.js
 mongo tsuru platforms-setup.js
-git clone https://github.com/flaviamissi/basebuilder
+git clone https://github.com/nightshade427/basebuilder
 (cd basebuilder/python/ && docker -H 127.0.0.1:4243 build -t "tsuru/python" .)
