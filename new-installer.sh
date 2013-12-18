@@ -4,6 +4,9 @@
 # Use of this source code is governed by a BSD-style
 # license that can be found in the LICENSE file.
 
+host_ip=`/sbin/ifconfig | sed -n '2 p' | awk '{print $2}' | cut -d ':' -f 2`
+host=`hostname`
+
 echo updating system
 apt-get update
 apt-get dist-upgrade -y
@@ -37,7 +40,7 @@ echo Starting hipache
 start hipache
 
 echo Configuring and starting Docker
-sed -i.old -e 's;DOCKER_OPTS=;DOCKER_OPTS=-r -H tcp://127.0.0.1:4243;' /etc/init/docker.conf
+sed -i.old -e 's;DOCKER_OPTS=;DOCKER_OPTS="-r -H tcp://0.0.0.0:4243";' /etc/init/docker.conf
 rm /etc/init/docker.conf.old
 stop docker
 start docker
@@ -83,8 +86,6 @@ service beanstalkd start
 echo Configuring and starting Tsuru
 #curl -o /etc/tsuru/tsuru.conf http://script.cloud.tsuru.io/conf/tsuru-docker-single.conf
 curl -o /etc/tsuru/tsuru.conf https://raw.github.com/nightshade427/tsuru-bootstrap/master/tsuru.conf
-host_ip=`/sbin/ifconfig | sed -n '2 p' | awk '{print $2}' | cut -d ':' -f 2`
-host=`hostname`
 sed -i.old -e "s/{{{HOST_IP}}}/${host_ip}/" /etc/tsuru/tsuru.conf
 sed -i.old -e "s/{{{HOST}}}/${host}/" /etc/tsuru/tsuru.conf
 sed -i.old -e 's/=no/=yes/' /etc/default/tsuru-server
