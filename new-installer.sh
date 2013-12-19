@@ -102,6 +102,6 @@ git clone https://github.com/nightshade427/basebuilder
 (cd basebuilder/python/ && docker -H 127.0.0.1:4243 build -t tsuru/python .)
 docker -H 127.0.0.1:4243 tag tsuru/python ${host}:8080/tsuru/python
 docker -H 127.0.0.1:4243 push ${host}:8080/tsuru/python
-docker -H 127.0.0.1:4243 rm `docker -H 127.0.0.1:4243 ps -a | awk '{print $1}'`
-docker -H 127.0.0.1:4243 rmi `docker -H 127.0.0.1:4243 images -a | awk '{print $1}'`
-docker -H 127.0.0.1:4243 rmi `docker -H 127.0.0.1:4243 images -a | awk '{print $3}'`
+docker -H 127.0.0.1:4243 rm `docker -H 127.0.0.1:4243 ps -a | awk '{print $1}'` | true
+docker -H 127.0.0.1:4243 rmi `docker -H 127.0.0.1:4243 images -a | awk '{print $1}'` | true
+docker -H 127.0.0.1:4243 rmi `docker -H 127.0.0.1:4243 images -a | awk '{print $3}'` | true
