@@ -67,7 +67,7 @@ git:
   bare:
       location: /var/lib/gandalf/repositories
       template: /home/git/bare-template
-host: localhost
+host: ${host}
 bind: localhost:8000
 uid: git
 EOF
