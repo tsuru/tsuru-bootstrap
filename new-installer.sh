@@ -6,7 +6,7 @@
 
 host_ip=`/sbin/ifconfig | sed -n '2 p' | awk '{print $2}' | cut -d ':' -f 2`
 host=`hostname`
-domain=`echo ${hostname} | cut -f 1 -d '.' --complement`
+domain=`echo ${host} | cut -f 1 -d '.' --complement`
 
 echo updating system
 apt-get update
