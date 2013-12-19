@@ -39,6 +39,14 @@ apt-get install lxc-docker docker-registry tsuru-server beanstalkd redis-server 
 echo Starting hipache
 start hipache
 
+echo Configuring docker-registry
+sed -i.old -e 's/setuid registry//' /etc/init/docker-registry.conf
+sed -i.old -e 's/setgid registry//' /etc/init/docker-registry.conf
+sed -i.old -e 's;/var/run/registry/docker-registry.pid;/var/run/docker-registry.pid;' /etc/init/docker-registry.conf
+rm /etc/init/docker-registry.conf.old
+stop docker-registry
+start docker-registry
+
 echo Configuring and starting Docker
 sed -i.old -e 's;DOCKER_OPTS=;DOCKER_OPTS="-r -H tcp://0.0.0.0:4243";' /etc/init/docker.conf
 rm /etc/init/docker.conf.old
