@@ -74,7 +74,7 @@ EOF
 
 echo Exporting TSURU_HOST AND TSURU_TOKEN env variables
 token=$(/usr/bin/tsr token)
-echo -e "export TSURU_TOKEN=$token\nexport TSURU_HOST=http://127.0.0.1:8080" | sudo -u git tee -a ~git/.bash_profile
+echo -e "export TSURU_TOKEN=$token\nexport TSURU_HOST=http://127.0.0.1:8081" | sudo -u git tee -a ~git/.bash_profile
 
 echo Starting Gandalf
 start gandalf-server
