@@ -37,6 +37,9 @@ echo Installing remaining packages
 apt-get update
 apt-get install lxc-docker docker-registry tsuru-server beanstalkd redis-server node-hipache gandalf-server -qqy
 
+echo Configuring hipache
+ln -s /usr/bin/nodejs /usr/bin/node
+
 echo Starting hipache
 start hipache
 
