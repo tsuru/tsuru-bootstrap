@@ -28,13 +28,14 @@ apt-get install mongodb-10gen -qqy
 
 echo Installing remaining packages
 apt-get update
-apt-get install lxc-docker-0.6.3 tsuru-server beanstalkd redis-server node-hipache gandalf-server -qqy
+#apt-get install lxc-docker-0.6.3 tsuru-server beanstalkd redis-server node-hipache gandalf-server -qqy
+apt-get install lxc-docker tsuru-server beanstalkd redis-server node-hipache gandalf-server -qqy
 
 echo Starting hipache
 start hipache
 
 echo Configuring and starting Docker
-sed -i.old -e 's;/usr/bin/docker -d;/usr/bin/docker -H tcp://127.0.0.1:4243 -d;' /etc/init/docker.conf
+sed -i.old -e 's;/usr/bin/docker -d;/usr/bin/docker -H tcp://127.0.0.1:4243 -s devicemapper -d;' /etc/init/docker.conf
 rm /etc/init/docker.conf.old
 stop docker
 start docker
@@ -91,5 +92,5 @@ start tsuru-server-collector
 echo Installing python platform
 curl -O https://raw.github.com/globocom/tsuru/master/misc/platforms-setup.js
 mongo tsuru platforms-setup.js
-git clone https://github.com/flaviamissi/basebuilder
-(cd basebuilder/python/ && docker -H 127.0.0.1:4243 build -t "tsuru/python" .)
+#git clone https://github.com/flaviamissi/basebuilder
+#(cd basebuilder/python/ && docker -H 127.0.0.1:4243 build -t "tsuru/python" .)
