@@ -4,6 +4,8 @@
 # Use of this source code is governed by a BSD-style
 # license that can be found in the LICENSE file.
 
+host_ip=192.168.50.4
+
 echo Installing curl
 apt-get update
 apt-get install curl -qqy
@@ -49,16 +51,8 @@ chmod +x ${hook_dir}/post-receive
 chown -R git:git /home/git/bare-template
 
 echo Configuring Gandalf
-cat > /etc/gandalf.conf <<EOF
-bin-path: /usr/bin/gandalf-ssh
-git:
-  bare:
-      location: /var/lib/gandalf/repositories
-      template: /home/git/bare-template
-host: localhost
-bind: localhost:8000
-uid: git
-EOF
+cp /vagrant/gandalf.conf /etc/gandalf.conf
+sed -i.old -e "s/{{{HOST_IP}}}/${host_ip}/" /etc/gandalf.conf
 
 echo Exporting TSURU_HOST AND TSURU_TOKEN env variables
 token=$(/usr/bin/tsr token)
@@ -82,7 +76,6 @@ service beanstalkd start
 echo Configuring and starting Tsuru
 #curl -o /etc/tsuru/tsuru.conf http://script.cloud.tsuru.io/conf/tsuru-docker-single.conf
 cp /vagrant/tsuru.conf /etc/tsuru/tsuru.conf
-host_ip=192.168.50.4
 sed -i.old -e "s/{{{HOST_IP}}}/${host_ip}/" /etc/tsuru/tsuru.conf
 sed -i.old -e 's/=no/=yes/' /etc/default/tsuru-server
 rm /etc/default/tsuru-server.old /etc/tsuru/tsuru.conf.old
