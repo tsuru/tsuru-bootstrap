@@ -38,7 +38,8 @@ echo Starting hipache
 start hipache
 
 echo Configuring and starting Docker
-sed -i.old -e 's;/usr/bin/docker -d;/usr/bin/docker -H tcp://127.0.0.1:4243 -s devicemapper -d;' /etc/init/docker.conf
+
+sed -i.old -e 's;-d;-d -H tcp://127.0.0.1:4243;' /etc/init/docker.conf
 rm /etc/init/docker.conf.old
 stop docker
 start docker
