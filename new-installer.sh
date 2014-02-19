@@ -18,7 +18,6 @@ curl https://get.docker.io/gpg | apt-key add -
 echo "deb http://get.docker.io/ubuntu docker main" | sudo tee /etc/apt/sources.list.d/docker.list
 
 echo Adding Tsuru repository
-apt-add-repository ppa:tsuru/lvm2 -y
 apt-add-repository ppa:tsuru/ppa -y
 
 echo Adding MongoDB repository
