@@ -1,6 +1,6 @@
 #!/bin/bash -eu
 
-# Copyright 2013 tsuru authors. All rights reserved.
+# Copyright 2014 tsuru authors. All rights reserved.
 # Use of this source code is governed by a BSD-style
 # license that can be found in the LICENSE file.
 
@@ -18,6 +18,7 @@ curl https://get.docker.io/gpg | apt-key add -
 echo "deb http://get.docker.io/ubuntu docker main" | sudo tee /etc/apt/sources.list.d/docker.list
 
 echo Adding Tsuru repository
+apt-add-repository ppa:tsuru/lvm2 -y
 apt-add-repository ppa:tsuru/ppa -y
 
 echo Adding MongoDB repository
@@ -30,7 +31,6 @@ apt-get install mongodb-10gen -qqy
 
 echo Installing remaining packages
 apt-get update
-#apt-get install lxc-docker-0.6.3 tsuru-server beanstalkd redis-server node-hipache gandalf-server -qqy
 apt-get install lxc-docker tsuru-server beanstalkd redis-server node-hipache gandalf-server -qqy
 
 echo Starting hipache
@@ -74,7 +74,6 @@ EOF
 service beanstalkd start
 
 echo Configuring and starting Tsuru
-#curl -o /etc/tsuru/tsuru.conf http://script.cloud.tsuru.io/conf/tsuru-docker-single.conf
 cp /vagrant/tsuru.conf /etc/tsuru/tsuru.conf
 sed -i.old -e "s/{{{HOST_IP}}}/${host_ip}/" /etc/tsuru/tsuru.conf
 sed -i.old -e 's/=no/=yes/' /etc/default/tsuru-server
