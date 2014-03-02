@@ -85,5 +85,6 @@ start tsuru-server-collector
 echo Installing python platform
 curl -O https://raw.github.com/globocom/tsuru/master/misc/platforms-setup.js
 mongo tsuru platforms-setup.js
-#git clone https://github.com/flaviamissi/basebuilder
+
+git clone https://github.com/flaviamissi/basebuilder
 #(cd basebuilder/python/ && docker -H 127.0.0.1:4243 build -t "tsuru/python" .)
