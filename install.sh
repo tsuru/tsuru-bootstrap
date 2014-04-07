@@ -31,7 +31,7 @@ apt-get install mongodb-10gen -qqy
 
 echo Installing remaining packages
 apt-get update
-apt-get install lxc-docker tsuru-server beanstalkd redis-server node-hipache gandalf-server -qqy
+apt-get install lxc-docker-0.8.1 tsuru-server beanstalkd redis-server node-hipache gandalf-server -qqy
 
 echo Starting hipache
 start hipache
