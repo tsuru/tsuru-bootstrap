@@ -46,7 +46,7 @@ start docker
 echo Installing bare-template for Gandalf repositories
 hook_dir=/home/git/bare-template/hooks
 mkdir -p $hook_dir
-curl https://raw.github.com/globocom/tsuru/master/misc/git-hooks/post-receive -o ${hook_dir}/post-receive
+curl https://raw.github.com/tsuru/tsuru/master/misc/git-hooks/post-receive -o ${hook_dir}/post-receive
 chmod +x ${hook_dir}/post-receive
 chown -R git:git /home/git/bare-template
 
@@ -83,7 +83,7 @@ start tsuru-server-api
 start tsuru-server-collector
 
 echo Installing python platform
-curl -O https://raw.github.com/globocom/tsuru/master/misc/platforms-setup.js
+curl -O https://raw.github.com/tsuru/tsuru/master/misc/platforms-setup.js
 mongo tsuru platforms-setup.js
 
 git clone https://github.com/flaviamissi/basebuilder

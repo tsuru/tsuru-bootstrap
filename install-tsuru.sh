@@ -8,7 +8,7 @@ echo "%vagrant ALL=(ALL) NOPASSWD:ALL" | sudo tee /etc/sudoers.d/vagrant
 
 sudo apt-get -y install curl
 
-curl -O https://raw.github.com/globocom/tsuru/master/misc/docker-setup.bash
+curl -O https://raw.github.com/tsuru/tsuru/master/misc/docker-setup.bash
 /bin/bash docker-setup.bash
 
 # move hipache to background

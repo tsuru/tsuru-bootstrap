@@ -13,8 +13,8 @@ sudo ~vagrant/.go/bin/godeb install
 go get github.com/kr/godep
 
 # install tsuru and friends
-go get -v github.com/globocom/tsuru/cmd/tsr
-cd ~/.go/src/github.com/globocom/tsuru
+go get -v github.com/tsuru/tsuru/cmd/tsr
+cd ~/.go/src/github.com/tsuru/tsuru
 godep restore ./...
 godep go clean ./...
 cd cmd/tsr
