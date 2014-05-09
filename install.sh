@@ -46,7 +46,7 @@ start docker
 echo Installing bare-template for Gandalf repositories
 hook_dir=/home/git/bare-template/hooks
 mkdir -p $hook_dir
-curl https://raw.github.com/tsuru/tsuru/master/misc/git-hooks/post-receive -o ${hook_dir}/post-receive
+curl https://raw.github.com/tsuru/tsuru/master/misc/git-hooks/post-receive -Lo ${hook_dir}/post-receive
 chmod +x ${hook_dir}/post-receive
 chown -R git:git /home/git/bare-template
 
@@ -57,6 +57,8 @@ sed -i.old -e "s/{{{HOST_IP}}}/${host_ip}/" /etc/gandalf.conf
 echo Exporting TSURU_HOST AND TSURU_TOKEN env variables
 token=$(/usr/bin/tsr token)
 echo -e "export TSURU_TOKEN=$token\nexport TSURU_HOST=http://127.0.0.1:8080" | sudo -u git tee -a ~git/.bash_profile
+
+echo "export DOCKER_HOST=127.0.0.1:4243" | tee -a ~vagrant/.bashrc
 
 echo Starting Gandalf
 start gandalf-server
@@ -83,7 +85,7 @@ start tsuru-server-api
 start tsuru-server-collector
 
 echo Installing python platform
-curl -O https://raw.github.com/tsuru/tsuru/master/misc/platforms-setup.js
+curl -LO https://raw.github.com/tsuru/tsuru/master/misc/platforms-setup.js
 mongo tsuru platforms-setup.js
 
 git clone https://github.com/flaviamissi/basebuilder
