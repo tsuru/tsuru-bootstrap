@@ -58,6 +58,8 @@ echo Exporting TSURU_HOST AND TSURU_TOKEN env variables
 token=$(/usr/bin/tsr token)
 echo -e "export TSURU_TOKEN=$token\nexport TSURU_HOST=http://127.0.0.1:8080" | sudo -u git tee -a ~git/.bash_profile
 
+echo "export DOCKER_HOST=127.0.0.1:4243" | tee -a ~vagrant/.bashrc
+
 echo Starting Gandalf
 start gandalf-server
 
