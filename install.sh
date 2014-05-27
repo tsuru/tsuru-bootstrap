@@ -7,4 +7,4 @@
 apt-get update
 apt-get install curl -qqy
 
-curl -sL https://raw.github.com/tsuru/now/master/run.bash | sudo -u vagrant bash
+curl -sL https://raw.github.com/tsuru/now/master/run.bash | sudo -Hu vagrant bash
