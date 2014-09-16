@@ -1,7 +1,7 @@
 # vi: set ft=ruby :
 
 Vagrant.configure("2") do |config|
-  config.vm.provision :shell, :path => "install.sh"
+  config.vm.provision :shell, :path => "install.sh", :args => ENV["TSURU_BOOTSTRAP"] || "stable"
 
   config.vm.provider :virtualbox do |vbox, override|
     vbox.memory = 1024
