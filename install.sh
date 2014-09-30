@@ -7,6 +7,6 @@
 apt-get update
 apt-get install curl -qqy
 
-curl -sL https://raw.github.com/tsuru/now/master/run.bash > /tmp/tsuru-now.bash
+curl -sL https://raw.githubusercontent.com/tsuru/now/master/run.bash > /tmp/tsuru-now.bash
 chmod +x /tmp/tsuru-now.bash
 sudo -iu $SUDO_USER /tmp/tsuru-now.bash --tsuru-pkg-$1 --archive-server --hook-url https://raw.githubusercontent.com/tsuru/tsuru/master/misc/git-hooks/pre-receive.archive-server --hook-name pre-receive
