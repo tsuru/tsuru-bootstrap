@@ -28,3 +28,14 @@ sudo -iu $SUDO_USER \
     --hook-url ${TSURU_NOW_HOOK_URL} \
     --hook-name pre-receive \
     ${TSURU_NOW_OPTIONS}
+
+if [ -d /usr/local/go ]; then
+    export GOPATH=~vagrant/go
+    mkdir -p $GOPATH
+fi
+if [ -f ~vagrant/.bashrc ]; then
+    if ! grep 'export GOPATH' ~vagrant/.bashrc; then
+      echo "Adding GOPATH=$GOPATH to ~vagrant/.bashrc"
+      echo -e "export GOPATH=$GOPATH" | tee -a ~vagrant/.bashrc > /dev/null
+    fi
+fi
