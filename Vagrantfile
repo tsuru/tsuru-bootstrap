@@ -1,7 +1,15 @@
 # vi: set ft=ruby :
 
 Vagrant.configure("2") do |config|
-  config.vm.provision :shell, :path => "install.sh", :args => ENV["TSURU_BOOTSTRAP"] || "stable"
+  config.vm.provision :shell do |shell|
+    shell.path = "install.sh"
+    shell.args = [
+      ENV["TSURU_BOOTSTRAP"] || "stable",
+      ENV["TSURU_NOW_SCRIPT_URL"] || "https://raw.githubusercontent.com/tsuru/now/master/run.bash",
+      ENV["TSURU_NOW_HOOK_URL"] || "https://raw.githubusercontent.com/tsuru/tsuru/master/misc/git-hooks/pre-receive.archive-server",
+      ENV["TSURU_NOW_OPTIONS"] || "",
+    ]
+  end
 
   config.vm.provider :virtualbox do |vbox, override|
     vbox.memory = 1024
