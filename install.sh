@@ -17,7 +17,7 @@ TSURU_NOW_HOOK_URL=$3
 TSURU_NOW_OPTIONS=$4
 
 apt-get update
-apt-get install curl -qqy
+apt-get install curl httpie silversearcher-ag tree vim-nox -qqy
 
 curl -sL ${TSURU_NOW_SCRIPT_URL} > /tmp/tsuru-now.bash
 chmod +x /tmp/tsuru-now.bash
