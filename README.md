@@ -5,16 +5,23 @@ Now](https://github.com/tsuru/now).
 
 To start a tsuru + vagrant what you need to do is:
 
-	$ vagrant up
+~~~bash
+$ vagrant up
+~~~
 
 It also supports running the tsuru instance on AWS:
 
-	$ vagrant up --provider=aws
+~~~bash
+$ vagrant up --provider=aws
+~~~
+
 
 You can also choose between different tsuru versions using the
 `TSURU_BOOTSTRAP` environment variable:
 
-	$ TSURU_BOOTSTRAP=nightly vagrant up
+~~~bash
+$ TSURU_BOOTSTRAP=nightly vagrant up
+~~~
 
 You can also pass options to Tsuru Now via the `TSURU_NOW_OPTIONS`
 environment variable -- e.g.: the following will install all the tsuru
