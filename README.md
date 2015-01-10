@@ -15,6 +15,12 @@ It also supports running the tsuru instance on AWS:
 $ vagrant up --provider=aws
 ~~~
 
+We also added support for the [KVM provider](https://github.com/adrahon/vagrant-kvm),
+you might need the latest [master version of the KVM provider](https://github.com/adrahon/vagrant-kvm/issues/258#issuecomment-68917766) if you get a "random_mac" error.
+
+~~~bash
+$ vagrant up --provider=kvm
+~~~
 
 You can also choose between different tsuru versions using the
 `TSURU_BOOTSTRAP` environment variable:

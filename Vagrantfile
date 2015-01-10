@@ -18,6 +18,13 @@ Vagrant.configure("2") do |config|
     override.vm.network :private_network, ip: "192.168.50.4"
   end
 
+  config.vm.provider :kvm do |kvm, override|
+    kvm.memory_size = 1024
+    override.vm.box = "trusty64"
+    override.vm.box_url = "https://vagrant-kvm-boxes-si.s3.amazonaws.com/trusty64-kvm-20140418.box"
+    override.vm.network :private_network, ip: "192.168.50.4"
+  end
+
   config.vm.provider :aws do |aws, override|
     override.vm.box = "dummy"
     override.vm.box_url = "https://raw.githubusercontent.com/mitchellh/vagrant-aws/master/dummy.box"
