@@ -9,18 +9,27 @@ To start a tsuru + vagrant what you need to do is:
 $ vagrant up
 ~~~
 
-It also supports running the tsuru instance on AWS:
+Supported providers
+===================
 
-~~~bash
-$ vagrant up --provider=aws
-~~~
+tsuru-bootstrap supports multiple providers, you can specify the desired
+provider with the ``--provider`` flag:
 
-We also added support for the [KVM provider](https://github.com/adrahon/vagrant-kvm),
-you might need the latest [master version of the KVM provider](https://github.com/adrahon/vagrant-kvm/issues/258#issuecomment-68917766) if you get a "random_mac" error.
+```bash
+$ vagrant up --provider=<provider-name>
+```
 
-~~~bash
-$ vagrant up --provider=kvm
-~~~
+* VirtualBox
+* AWS
+* KVM <https://github.com/adrahon/vagrant-kvm>
+* Parallels <https://github.com/Parallels/vagrant-parallels>
+
+For the KVM provider, you may need [master version of
+it](https://github.com/adrahon/vagrant-kvm/issues/258#issuecomment-68917766),
+if you get a "random_mac" error.
+
+Choosing between versions
+-------------------------
 
 You can also choose between different tsuru versions using the
 `TSURU_BOOTSTRAP` environment variable:
@@ -29,9 +38,12 @@ You can also choose between different tsuru versions using the
 $ TSURU_BOOTSTRAP=nightly vagrant up
 ~~~
 
+Building tsuru from source for contributing
+-------------------------------------------
+
 You can also pass options to Tsuru Now via the `TSURU_NOW_OPTIONS`
 environment variable -- e.g.: the following will install all the tsuru
-components from source along with [golang](https://golang.org/) 1.4 so
+components from source along with [Go](https://golang.org/) 1.4 so
 you can have a [development environment][] up and running quickly for
 [contributing][]:
 
