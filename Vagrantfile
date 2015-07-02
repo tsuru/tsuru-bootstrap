@@ -25,6 +25,12 @@ Vagrant.configure("2") do |config|
     override.vm.network :private_network, ip: "192.168.50.4"
   end
 
+  config.vm.provider :parallels do |prl, override|
+    prl.memory = 1024
+    override.vm.box = "parallels/ubuntu-14.04"
+    override.vm.network :private_network, ip: "192.168.50.4"
+  end
+
   config.vm.provider :aws do |aws, override|
     override.vm.box = "dummy"
     override.vm.box_url = "https://raw.githubusercontent.com/mitchellh/vagrant-aws/master/dummy.box"
@@ -42,11 +48,5 @@ Vagrant.configure("2") do |config|
     aws.tags = {
       "Name" => "tsuru_bootstrap",
     }
-  end
-
-  config.vm.provider :parallels do |prl, override|
-    prl.memory = 1024
-    override.vm.box = "parallels/ubuntu-14.04"
-    override.vm.network :private_network, ip: "192.168.50.4"
   end
 end
