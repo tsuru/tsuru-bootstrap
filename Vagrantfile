@@ -44,6 +44,7 @@ Vagrant.configure("2") do |config|
     aws.keypair_name = ENV["AWS_KEYPAIR_NAME"]
     aws.ami = ENV["AWS_AMI"]
     aws.region = ENV["AWS_REGION"]
+    aws.block_device_mapping = [{ 'DeviceName' => '/dev/sda1', 'Ebs.VolumeSize' => 50 }]
     aws.instance_ready_timeout = 300
     aws.terminate_on_shutdown = true
     aws.tags = {
