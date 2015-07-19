@@ -14,8 +14,6 @@ Vagrant.configure("2") do |config|
   config.vm.provider :vmware_fusion do |vbox, override|
     vbox.memory = 1024
     override.vm.box = "phusion/ubuntu-14.04-amd64"
-#    override.vm.box_url = "https://cloud-images.ubuntu.com/vagrant/trusty/current/trusty-server-cloudimg-amd64-vagrant-disk1.box"
-#    override.vm.network :private_network, ip: "192.168.50.4"
   end
 
   config.vm.provider :virtualbox do |vbox, override|
