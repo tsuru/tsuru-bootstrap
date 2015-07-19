@@ -34,6 +34,7 @@ Vagrant.configure("2") do |config|
   config.vm.provider :aws do |aws, override|
     override.vm.box = "dummy"
     override.vm.box_url = "https://raw.githubusercontent.com/mitchellh/vagrant-aws/master/dummy.box"
+    override.nfs.functional = false
 
     override.ssh.username = "ubuntu"
     override.ssh.private_key_path = ENV["AWS_PRIVATE_KEY_PATH"]
