@@ -21,12 +21,8 @@ $ vagrant up --provider=<provider-name>
 
 * VirtualBox
 * AWS
-* KVM <https://github.com/adrahon/vagrant-kvm>
+* libvirt <https://github.com/pradels/vagrant-libvirt>
 * Parallels <https://github.com/Parallels/vagrant-parallels>
-
-For the KVM provider, you may need [master version of
-it](https://github.com/adrahon/vagrant-kvm/issues/258#issuecomment-68917766),
-if you get a "random_mac" error.
 
 Choosing between versions
 -------------------------

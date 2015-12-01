@@ -23,10 +23,10 @@ Vagrant.configure("2") do |config|
     override.vm.network :private_network, ip: "192.168.50.4"
   end
 
-  config.vm.provider :kvm do |kvm, override|
-    kvm.memory_size = 1024
-    override.vm.box = "trusty64"
-    override.vm.box_url = "https://vagrant-kvm-boxes.s3.amazonaws.com/trusty64_kvm.box"
+  config.vm.provider :libvirt do |libvirt, override|
+    libvirt.driver = "kvm"
+    libvirt.memory = 1024
+    override.vm.box = "sputnik13/trusty64"
     override.vm.network :private_network, ip: "192.168.50.4"
   end
 
