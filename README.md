@@ -20,7 +20,7 @@ $ vagrant up --provider=<provider-name>
 ```
 
 * VirtualBox
-* AWS
+* AWS <https://github.com/mitchellh/vagrant-aws>
 * libvirt <https://github.com/pradels/vagrant-libvirt>
 * Parallels <https://github.com/Parallels/vagrant-parallels>
 
