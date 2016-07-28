@@ -12,12 +12,12 @@ Vagrant.configure("2") do |config|
   end
 
   config.vm.provider :vmware_fusion do |vbox, override|
-    vbox.memory = 1024
+    vbox.memory = 3048
     override.vm.box = "phusion/ubuntu-14.04-amd64"
   end
 
   config.vm.provider :virtualbox do |vbox, override|
-    vbox.memory = 1024
+    vbox.memory = 3048
     override.vm.box = "ubuntu14.04"
     override.vm.box_url = "https://cloud-images.ubuntu.com/vagrant/trusty/current/trusty-server-cloudimg-amd64-vagrant-disk1.box"
     override.vm.network :private_network, ip: "192.168.50.4"
@@ -25,13 +25,13 @@ Vagrant.configure("2") do |config|
 
   config.vm.provider :libvirt do |libvirt, override|
     libvirt.driver = "kvm"
-    libvirt.memory = 1024
+    libvirt.memory = 3048
     override.vm.box = "sputnik13/trusty64"
     override.vm.network :private_network, ip: "192.168.50.4"
   end
 
   config.vm.provider :parallels do |prl, override|
-    prl.memory = 1024
+    prl.memory = 3048
     override.vm.box = "parallels/ubuntu-14.04"
     override.vm.network :private_network, ip: "192.168.50.4"
   end
