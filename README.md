@@ -22,6 +22,7 @@ $ vagrant up --provider=<provider-name>
 * VirtualBox
 * AWS <https://github.com/mitchellh/vagrant-aws>
 * libvirt <https://github.com/pradels/vagrant-libvirt>
+* Digital Ocean <https://github.com/devopsgroup-io/vagrant-digitalocean>
 * Parallels <https://github.com/Parallels/vagrant-parallels>
 
 Choosing between versions

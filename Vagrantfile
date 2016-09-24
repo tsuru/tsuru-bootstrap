@@ -56,4 +56,15 @@ Vagrant.configure("2") do |config|
       "Name" => "tsuru_bootstrap",
     }
   end
+
+  config.vm.provider :digital_ocean do |digitalocean, override|
+    override.ssh.private_key_path = ENV["DIGITAL_OCEAN_SSH_PATH"]
+    override.vm.box = 'digital_ocean'
+    override.vm.box_url = "https://github.com/devopsgroup-io/vagrant-digitalocean/raw/master/box/digital_ocean.box"
+    digitalocean.token = ENV["DIGITAL_OCEAN_TOKEN"]
+    digitalocean.image = ENV["DIGITAL_OCEAN_IMAGE"]
+    digitalocean.region = ENV["DIGITAL_OCEAN_REGION"]
+    digitalocean.size = ENV["DIGITAL_OCEAN_SIZE"]
+  end
+
 end
