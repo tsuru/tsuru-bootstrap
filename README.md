@@ -9,6 +9,8 @@ To start a tsuru + vagrant what you need to do is:
 $ vagrant up
 ~~~
 
+This will start a tsuru remote, or target, running at 192.168.50.4. Just browse to 192.168.50.4:8080 for further setup instructions!
+
 Supported providers
 ===================
 
