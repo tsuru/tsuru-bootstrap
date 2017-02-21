@@ -6,7 +6,7 @@ Vagrant.configure("2") do |config|
     shell.args = [
       ENV["TSURU_BOOTSTRAP"] || "stable",
       ENV["TSURU_NOW_SCRIPT_URL"] || "https://raw.githubusercontent.com/tsuru/now/master/run.bash",
-      ENV["TSURU_NOW_HOOK_URL"] || "https://raw.githubusercontent.com/tsuru/tsuru/master/misc/git-hooks/pre-receive.archive-server",
+      ENV["TSURU_NOW_HOOK_URL"] || "https://raw.githubusercontent.com/tsuru/tsuru/master/misc/git-hooks/pre-receive",
       ENV["TSURU_NOW_OPTIONS"] || "",
     ]
   end

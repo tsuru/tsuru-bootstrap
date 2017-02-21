@@ -10,7 +10,7 @@ TSURU_MODE=$1
 # E.g.: "https://raw.githubusercontent.com/tsuru/now/master/run.bash"
 TSURU_NOW_SCRIPT_URL=$2
 
-# E.g.: "https://raw.githubusercontent.com/tsuru/tsuru/master/misc/git-hooks/pre-receive.archive-server"
+# E.g.: "https://raw.githubusercontent.com/tsuru/tsuru/master/misc/git-hooks/pre-receive"
 TSURU_NOW_HOOK_URL=$3
 
 # E.g.: "" or "--tsuru-from-source"
@@ -24,7 +24,6 @@ chmod +x /tmp/tsuru-now.bash
 sudo -iu $SUDO_USER \
   /tmp/tsuru-now.bash \
     --tsuru-pkg-${TSURU_MODE} \
-    --archive-server \
     --hook-url ${TSURU_NOW_HOOK_URL} \
     --hook-name pre-receive \
     ${TSURU_NOW_OPTIONS}
