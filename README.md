@@ -27,15 +27,6 @@ $ vagrant up --provider=<provider-name>
 * Digital Ocean <https://github.com/devopsgroup-io/vagrant-digitalocean>
 * Parallels <https://github.com/Parallels/vagrant-parallels>
 
-Choosing between versions
--------------------------
-
-You can also choose between different tsuru versions using the
-`TSURU_BOOTSTRAP` environment variable:
-
-~~~bash
-$ TSURU_BOOTSTRAP=nightly vagrant up
-~~~
 
 Building tsuru from source for contributing
 -------------------------------------------
